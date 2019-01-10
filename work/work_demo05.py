@@ -10,28 +10,36 @@ import datetime
 
 
 def multiplication_table():
-    for i in range(1,10):
-        for j in range(1, i+1):
-            print(str(j) + "*" + str(i) + "=" + str(i*j), end="\t")  # \t 横向制表符
+    for i in range(1, 10):
+        for j in range(1, i + 1):
+            print(str(j) + "*" + str(i) + "=" + str(i * j), end="\t")  # \t 横向制表符
         print()
-multiplication_table()
+
+
+# multiplication_table()
 
 
 def is_leap_year(year):
     assert type(year) == int
-    if year % 4 == 0:
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
         return True
     else:
         return False
 
-print(is_leap_year(1997))
-print(is_leap_year(2000))
+
+# print(is_leap_year(1997))
+# print(is_leap_year(2000))
+
 
 def get_which_days(date):
     date_today = datetime.datetime.strptime(date, '%Y-%m-%d')
+    print(type(date_today))
+    print(date_today.year)
+    print(date_today.month)
+    print(date_today.day)
     count = 0
     # 判断该年是平年还是闰年
-    if date_today.year % 4 == 0 :
+    if (date_today.year % 4 == 0 and date_today.year % 100 != 0) or date_today.year % 400 == 0:
         print('%d年是闰年，2月份有29天！' % date_today.year)
         li1 = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         for i in range(date_today.month - 1):
@@ -43,5 +51,6 @@ def get_which_days(date):
         for i in range(date_today.month - 1):
             count += li2[i]
         return count + date_today.day
+
 
 print(get_which_days('2018-02-1'))
