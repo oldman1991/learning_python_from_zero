@@ -84,11 +84,16 @@ class HbDog(Dog):
     def say_father(self):
         super().say()
 
-    # def say(self, aaa):
-    #     print(aaa)
+        # def say(self, aaa):
+        #     print(aaa)
 
 
 doga = HbDog()
 doga.say()
 doga.say("aaa")
 doga.say_father()
+
+
+# master 分支一般是线上的
+# test 分支是在测试环境上的
+# dev 分支是你在开发的时间用的
